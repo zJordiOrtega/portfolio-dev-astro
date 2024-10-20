@@ -1,0 +1,105 @@
+---
+import Go from "./icons/Go.astro";
+import Html from "./icons/Html.astro";
+import Css from "./icons/Css.astro";
+import Javascript from "./icons/Javascript.astro";
+import Java from "./icons/Java.astro";
+import Springboot from "./icons/Springboot.astro";
+import Postgresql from "./icons/Postgresql.astro";
+import Mysql from "./icons/Mysql.astro";
+import GithubIcon from "./icons/Github.astro";
+import Pill from "./Pill.astro";
+import Link from "./icons/Link.astro";
+
+const TAGS = {
+  GO: {
+    name: "Go",
+    class: "bg-[#11111B] text-white",
+    icon: Go,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#11111B] text-white",
+    icon: Html,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#11111B] text-white",
+    icon: Css,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#11111B] text-white",
+    icon: Javascript,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-[#11111B]text-white",
+    icon: Java,
+  },
+  SPRINGBOOT: {
+    name: "Spring Boot",
+    class: "bg-[#11111B] text-white",
+    icon: Springboot,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#11111B] text-white",
+    icon: Postgresql,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#11111B] text-white",
+    icon: Mysql,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Snippetbox - CRUD text snippets",
+    description:
+      "Snippetbox is a full-stack web application built with Go (Golang) that allows users to create, read, update, and delete (CRUD) text snippets, similar to GitHub Gists. It includes key features like user authentication, protected endpoints for snippet creation, RESTful routing, and middleware support. The application uses a MySQL database for data persistence and serves content securely with SSL/TLS and HTTP 2.0. Additionally, it employs Go templating system to dynamically generate HTML and includes CSRF protection to enhance security",
+    link: "#",
+    github: "#",
+    image: "/public/projects/snippetbox.webp",
+    tags: [TAGS.GO, TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.MYSQL],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image, link, github }) => (
+    <article>
+      <h3 class="text-2x font-semibold text-mocha-red mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs font-semibold items-center ${tag.class} py-2 px-2 border border-white/10 mb-2`}
+            >
+              <tag.icon class="size-5" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-lg shadow-pink-700/30"
+        src={image}
+        alt={`Project screenshot ${image}`}
+      />
+
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+        <Pill href={github}>
+          <GithubIcon class="size-4 md:size-6" />
+          Github
+        </Pill>
+        <Pill href={link}>
+          <Link class="size-4 md:size-6" />
+          Preview
+        </Pill>
+      </footer>
+    </article>
+  ))
+}

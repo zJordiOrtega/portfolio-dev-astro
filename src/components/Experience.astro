@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "August 2018 - March 2022",
+    title: "Customer Service",
+    company: "Cnepolis",
+    description:
+      "Provided friendly and attentive customer service at the cash register, handling payments and orders quickly. Managed food and beverage preparation, always aiming to satisfy customers. Kept the area clean and organized, creating a pleasant and safe environment for everyone.",
+  },
+  {
+    date: "December 2022 - February 2023",
+    title: "Sales Agent",
+    company: "Petco",
+    description:
+      "Provided personalized assistance to customers in-store, helping them find products that met their needs and ensuring an exceptional shopping experience. Fostered positive relationships with customers, promoting brand loyalty and increasing sales through effective recommendations.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
